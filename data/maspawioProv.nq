@@ -1,0 +1,8 @@
+<https://gleaner.io/id/org/maspawio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://gleaner.io/id/org/maspawio> <https://schema.org/identifier> <https://www.re3data.org/repository/maspawio> .
+<https://gleaner.io/id/org/maspawio> <https://schema.org/name> "Marine Spatial Atlas for the Western Indian Ocean" .
+<https://gleaner.io/id/org/maspawio> <https://schema.org/url> "https://maspawio.net/" .
+<https://www.re3data.org/repository/maspawio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+<https://www.re3data.org/repository/maspawio> <https://schema.org/description> "Persistent identifier for this organization" .
+<https://www.re3data.org/repository/maspawio> <https://schema.org/propertyID> "https://registry.identifiers.org/registry/doi" .
+<https://www.re3data.org/repository/maspawio> <https://schema.org/url> "https://www.re3data.org/repository/maspawio" .
