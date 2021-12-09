@@ -2,4 +2,4 @@
 
 ## About
 
-The start of some notebooks related to Gleaner 
+The start of some notebooks related to Gleaner.io work.  
