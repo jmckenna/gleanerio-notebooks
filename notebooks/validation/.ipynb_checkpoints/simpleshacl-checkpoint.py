@@ -4,8 +4,10 @@ from rdflib.serializer import Serializer
 import kglab
 
 # set up the files we will use here
+# dg = './datagraphs/test_org.json'
 dg = './datagraphs/lipd.json'
 sg = './shapes/oih_checkDownload.ttl'
+# sg = './shapes/oih_learning.ttl'
 
 namespaces = {
             "schema":  "https://schema.org/",
