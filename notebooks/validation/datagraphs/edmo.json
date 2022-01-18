@@ -1,6 +1,6 @@
 {
     "@context": {
-        "@vocab": "https://schema.org"
+        "@vocab": "https://schema.org/"
     },
     "@type": "Organization",
     "@id": "https://edmo.seadatanet.org/report/3266",
@@ -28,5 +28,10 @@
     "memberOf": {
         "@type": "ProgramMembership",
         "programName": "European Directory of Marine Organisations (EDMO)"
-    }
+
 }
+}
+
+
+
+

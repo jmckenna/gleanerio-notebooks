@@ -1,0 +1,56 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "URL  OIH shape guidance" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+oihval:DatasetCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "OIH Spatial validation" ;
+    sh:description "OIH shape guidance for schema.org spatial" ;
+    sh:property
+        oihval:spatialResourceProperty
+    .
+
+oihval:spatialResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Warning ;
+    sh:path schema:spatialCoverage ;
+    sh:minCount 1 ;
+    sh:message "A resource should include spatial information" ;
+    .
+
+oihval:PlaceCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "OIH Place validation" ;
+    sh:description "OIH shape guidance for schema.org spatial property path" ;
+    sh:property oihval:geoResourceProperty
+    .
+
+oihval:geoResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Warning ;
+    sh:path (schema:spatialCoverage schema:geo) ;
+    sh:minCount 1 ;
+    sh:message "A resource should include a geo property path from Dataset" ;
+    .
+
+oihval:PersonCountShape
+    a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    sh:message "A resource should include a DataDownload" ;
+    sh:targetNode schema:DataDownload ;
+    sh:property [
+        sh:path [ sh:inversePath rdf:type ] ;
+        sh:minCount 1 ;
+    ] 
+    .

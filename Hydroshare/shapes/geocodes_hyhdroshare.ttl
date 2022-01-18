@@ -1,0 +1,97 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+oihval:DatasetCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "GeoCODES MagIC test set" ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    sh:property
+        oihval:versionProperty,
+        oihval:nameResourceProperty,
+        oihval:urlResourceProperty,
+        oihval:descriptionResourceProperty,
+        oihval:identifierProviderProperty,
+        oihval:keywordsResourceProperty,
+        oihval:licenseResourceProperty
+    .
+
+oihval:versionProperty
+    a sh:PropertyShape ;
+    sh:path schema:version ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:integer ;
+    sh:message "Version missing, not typed integer, cardinality" ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+
+oihval:nameResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:name ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Name should be provided"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+
+oihval:keywordsResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:keywords ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+    sh:severity sh:Warning ;
+    sh:message "Keywords should be provided" ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+
+oihval:licenseResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:license ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+    sh:severity sh:Info ;
+    sh:message "License information not available" ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+
+oihval:urlResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:url ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "URL required for the location of the resource"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+
+oihval:descriptionResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:description;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Descriptions should be provided"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+
+oihval:identifierProviderProperty
+    a sh:PropertyShape ;
+    sh:path schema:provider;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "Provider information not listed"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org" ;
+    .
+

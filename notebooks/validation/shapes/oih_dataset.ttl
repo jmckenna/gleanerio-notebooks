@@ -1,64 +1,64 @@
 @prefix schema: <https://schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
 
 oihval:IDShape
-    a shacl:NodeShape ;
-    shacl:targetClass schema:Dataset ;
-    shacl:message "Graph must have an ID"@en ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
-    shacl:nodeKind shacl:IRI ;
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    sh:nodeKind sh:IRI ;
     .
 
 # Identifier Common Shape needs
 
 oihval:IdentifuerShape
-    a shacl:NodeShape ;
-    shacl:targetClass schema:PropertyValue ;
-    shacl:message "OIH Identifier validation set" ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
-    shacl:property
+    a sh:NodeShape ;
+    sh:targetClass schema:PropertyValue ;
+    sh:message "OIH Identifier validation set" ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    sh:property
         oihval:idPropIDProperty,
         oihval:idurlProperty,
         oihval:idvalueProperty
     .
 
 oihval:idPropIDProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:propertyID ;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "PropertyID is required "@en ;
-    shacl:description "https://book.oceaninfohub.org/thematics/docs/README.html#details-authoritative-reference" ;
+    a sh:PropertyShape ;
+    sh:path schema:propertyID ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "PropertyID is required "@en ;
+    sh:description "https://book.oceaninfohub.org/thematics/docs/README.html#details-authoritative-reference" ;
     .
 
 oihval:idurlProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:url ;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "URL is required "@en ;
-    shacl:description "https://book.oceaninfohub.org/thematics/docs/README.html#details-authoritative-reference" ;
+    a sh:PropertyShape ;
+    sh:path schema:url ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "URL is required "@en ;
+    sh:description "https://book.oceaninfohub.org/thematics/docs/README.html#details-authoritative-reference" ;
     .
 
 oihval:idvalueProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:value ;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "Value is required "@en ;
-    shacl:description "https://book.oceaninfohub.org/thematics/docs/README.html#details-authoritative-reference" ;
+    a sh:PropertyShape ;
+    sh:path schema:value ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Value is required "@en ;
+    sh:description "https://book.oceaninfohub.org/thematics/docs/README.html#details-authoritative-reference" ;
     .
 
 # Dataset Common Shape needs
 
 oihval:DatasetCommonShape
-    a shacl:NodeShape ;
-    shacl:targetClass schema:Dataset ;
-    shacl:message "OIH Dataset Resource validation set" ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
-    shacl:property
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "OIH Dataset Resource validation set" ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    sh:property
         oihval:nameResourceProperty,
         oihval:urlResourceProperty,
         oihval:descriptionResourceProperty,
@@ -67,47 +67,47 @@ oihval:DatasetCommonShape
     .
 
 oihval:nameResourceProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:name ;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "Name is required "@en ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
+    a sh:PropertyShape ;
+    sh:path schema:name ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Name is required "@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
     .
 
 oihval:urlResourceProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:url ;
-    shacl:maxCount 1 ;
-    shacl:minCount 1 ;
-    shacl:nodeKind shacl:IRIOrLiteral ;
-    shacl:message "URL required for the location of the resource described by this metadata"@en ;
-    shacl:description "https://book.oceaninfohub.org/thematics/docs/README.html#" ;
+    a sh:PropertyShape ;
+    sh:path schema:url ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "URL required for the location of the resource described by this metadata"@en ;
+    sh:description "https://book.oceaninfohub.org/thematics/docs/README.html#" ;
     .
 
 oihval:descriptionResourceProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:description;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "Resource must have a description"@en ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
+    a sh:PropertyShape ;
+    sh:path schema:description;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have a description"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
     .
 
 oihval:identifierResourceProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:identifier;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "Resource must have an identifier node"@en ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
+    a sh:PropertyShape ;
+    sh:path schema:identifier;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have an identifier node"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
     .
 
 oihval:keywordResourceProperty
-    a shacl:PropertyShape ;
-    shacl:path schema:keywords;
-    shacl:nodeKind shacl:Literal ;
-    shacl:minCount 1 ;
-    shacl:message "Resource must have one or more keywords"@en ;
-    shacl:description "https://book.oceaninfohub.org/validation/README.html" ;
+    a sh:PropertyShape ;
+    sh:path schema:keywords;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have one or more keywords"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
     .

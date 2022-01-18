@@ -1,0 +1,73 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Organization;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "URL  OIH shape guidance" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+oihval:OrgCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Organization ;
+    sh:message "OIH Spatial validation" ;
+    sh:description "OIH shape guidance for schema.org spatial" ;
+    sh:property
+        oihval:nameResourceProperty,
+        oihval:descResourceProperty,
+        oihval:shrtdescResourceProperty,
+        oihval:urlResourceProperty
+    .
+
+oihval:nameResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Violation ;
+    sh:path schema:name;
+    sh:minCount 1 ;
+    sh:message "A resource should include a name" ;
+    .
+
+oihval:descResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Violation ;
+    sh:path schema:description;
+    sh:minCount 1 ;
+    sh:message "A resource should include a description" ;
+    .
+
+oihval:shrtdescResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Warning ;
+    sh:path schema:description;
+    sh:minLength 50 ;
+    sh:message "The provided description is short." ;
+.
+
+oihval:urlResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Violation ;
+    sh:path schema:url;
+    sh:minCount 1 ;
+    sh:message "A resource should include a url" ;
+    .
+
+oihval:PlaceCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Organization ; 
+    sh:message "OIH Place validation" ;
+    sh:description "OIH shape guidance for Organization location information" ;
+    sh:property oihval:geoResourceProperty
+    .
+
+oihval:geoResourceProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Warning ;
+    sh:path schema:address;
+    sh:minCount 1 ;
+    sh:message "An organization should include an address" ;
+    .
+

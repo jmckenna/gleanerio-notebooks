@@ -1,0 +1,73 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Course ;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "URL  OIH shape guidance" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+oihval:DatasetCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Course ;
+    sh:message "OIH Learning Resource validation" ;
+    sh:description "OIH shape guidance" ;
+    sh:property
+        oihval:nameResourceProperty,
+        oihval:urlResourceProperty,
+        oihval:descriptionResourceProperty,
+        oihval:keywordsResourceProperty,
+        oihval:identifierProviderProperty ,
+        oihval:characterProperty ;
+    .
+
+oihval:characterProperty
+    a sh:PropertyShape ;
+    sh:path schema:name ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Character is required "@en ;
+    sh:description "https://foo.org" ;
+    .
+
+oihval:nameResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:name ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Name is required "@en ;
+    sh:description "https://foo.org" ;
+    .
+
+oihval:urlResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:url ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "URL required for the location of a page describing the resource"@en ;
+    sh:description "https://foo.org" ;
+    .
+
+oihval:descriptionResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:description;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have a description"@en ;
+    sh:description "https://foo.org" ;
+    .
+
+
+oihval:identifierProviderProperty
+    a sh:PropertyShape ;
+    sh:path schema:provider;
+    sh:minCount 1 ;
+    sh:message "A provider must be noted"@en ;
+    sh:description "https://foo.org" ;
+    .
+
