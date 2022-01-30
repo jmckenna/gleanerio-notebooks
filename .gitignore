@@ -1,2 +1,5 @@
 **/reports/
 .idea/**
+**/secret/
+notebooks/exploring/canonical.ipynb
+**/.ipynb_checkpoints/**
