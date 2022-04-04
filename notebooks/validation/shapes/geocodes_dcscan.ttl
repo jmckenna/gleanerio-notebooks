@@ -1,0 +1,135 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:severity sh:Violation ;
+    sh:message "@id should be provided"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+# Distribution Common Shape needs
+
+oihval:IdentifuerShape
+    a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetClass schema:DataDownload ;
+    sh:message "DataDownload validation set" ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions" ;
+    sh:property
+        oihval:contentURL,
+        oihval:idurlProperty;
+    .
+
+oihval:contentURL
+    a sh:PropertyShape ;
+    sh:path schema:contentUrl ;
+    sh:nodeKind sh:Literal ;
+    sh:severity sh:Warning ;
+    sh:minCount 1 ;
+    sh:message "DataDownload: contentURL missing"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions" ;
+    .
+
+oihval:idurlProperty
+    a sh:PropertyShape ;
+    sh:path schema:encodingFormat ;
+    sh:severity sh:Info ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "DataDownload: encodingFormat is required "@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions" ;
+    .
+
+
+# Dataset Common Shape needs
+
+oihval:DatasetCommonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "OIH Dataset Resource validation set" ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    sh:property
+        oihval:distribution,
+        oihval:variableMeasured,
+        oihval:nameResourceProperty,
+        oihval:urlResourceProperty,
+        oihval:descriptionResourceProperty,
+        oihval:identifierResourceProperty,
+        oihval:keywordResourceProperty
+    .
+
+oihval:distribution
+    a sh:PropertyShape ;
+    sh:path schema:distribution ;
+    sh:severity sh:Warning ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "distribution required"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables" ;
+    .
+
+oihval:variableMeasured
+    a sh:PropertyShape ;
+    sh:path schema:variableMeasured ;
+    sh:severity sh:Info ;
+    sh:minCount 1 ;
+    sh:message "Included variableMeasured, if available"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables" ;
+    .
+
+oihval:nameResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:name ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Name is required "@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    .
+
+oihval:urlResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:url ;
+    sh:severity sh:Warning ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "URL required for described resource"@en ;
+    sh:description "https://book.oceaninfohub.org/thematics/docs/README.html#" ;
+    .
+
+oihval:descriptionResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:description;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have a description"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    .
+
+oihval:identifierResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:identifier;
+    sh:severity sh:Warning ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have an identifier node"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    .
+
+oihval:keywordResourceProperty
+    a sh:PropertyShape ;
+    sh:path schema:keywords;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Resource must have one or more keywords"@en ;
+    sh:description "https://book.oceaninfohub.org/validation/README.html" ;
+    .

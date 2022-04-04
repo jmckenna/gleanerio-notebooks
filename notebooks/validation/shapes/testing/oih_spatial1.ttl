@@ -44,11 +44,11 @@ oihval:geoResourceProperty
     sh:message "A resource should include a geo property path from Dataset" ;
     .
 
-oihval:PersonCountShape
+oihval:CheckPlace
     a sh:NodeShape ;
     sh:severity sh:Warning ;
-    sh:message "A resource should include a DataDownload" ;
-    sh:targetNode schema:DataDownload ;
+    sh:message "A resource should include a type Place" ;
+    sh:targetNode schema:Place ;
     sh:property [
         sh:path [ sh:inversePath rdf:type ] ;
         sh:minCount 1 ;

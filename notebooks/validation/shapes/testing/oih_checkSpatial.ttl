@@ -1,0 +1,23 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "Provide URL to OIH shape guidance" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+oihval:InverseTest
+    a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    sh:message "A resource should include a DataDownload type" ;
+    sh:targetNode schema:Dataset ;
+    sh:property [
+        sh:path [ sh:inversePath schema:DataDownload ] ;
+        sh:minCount 1 ;
+    ] .

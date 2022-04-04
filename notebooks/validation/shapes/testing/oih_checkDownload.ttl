@@ -14,8 +14,8 @@ oihval:IDShape
 oihval:PersonCountShape
     a sh:NodeShape ;
     sh:severity sh:Warning ;
-    sh:message "A resource should include a DataDownload" ;
-    sh:targetNode schema:Course ;
+    sh:message "A resource should include a type DataDownload" ;
+    sh:targetNode schema:DataDownload ;
     sh:property [
         sh:path [ sh:inversePath <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ] ;
         sh:minCount 1 ;
