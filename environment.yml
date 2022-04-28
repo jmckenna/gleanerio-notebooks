@@ -416,7 +416,7 @@ dependencies:
   - zeromq=4.3.4=h2531618_0
   - zict=2.0.0=pyhd3eb1b0_0
   - zipp=3.5.0=pyhd3eb1b0_0
-  - zlib=1.2.11=h7b6447c_3
+#  - zlib=1.2.11=h7b6447c_3  # got a dependecy conclift in binder
   - zstd=1.5.0=ha95c52a_0
   - pip:
     - advertools==0.11.1
