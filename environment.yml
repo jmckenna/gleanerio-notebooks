@@ -439,7 +439,7 @@ dependencies:
     - datacommons-pandas==0.0.3
     - deckar01-ratelimit==3.0.1
     - diagrams==0.20.0
-    - en-core-web-sm==3.1.0
+#    - en-core-web-sm==3.1.0
     - executing==0.8.0
     - flatten-json==0.1.13
     - fuzzywuzzy==0.18.0
