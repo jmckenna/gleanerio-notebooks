@@ -471,7 +471,7 @@ dependencies:
     - pyle38==0.4.0
     - pyspotlight==0.7.2
     - pytextrank==3.2.1
-    - python-graphviz==0.16
+ #   - python-graphviz==0.16
     - pytz-deprecation-shim==0.1.0.post0
     - pyyaml==5.4.1
     - queuelib==1.6.2
