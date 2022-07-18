@@ -18,11 +18,12 @@ pySHACL implementation but much of this should run fine in any of the implementa
 - [W3C SHACL](https://www.w3.org/TR/shacl/)
 - [Editors Draft](https://w3c.github.io/data-shapes/shacl/)
 - You can try SHACL at the [SHACL Playground](https://shacl.org/playground/)
+ 
 
 ## In the context of Go FAIR Implementation Networks
 
 <div>
-<img src="./images/relations.png"  width="400"/>
+<img src="./images/relations.png"  width="600"/>
 <div>
 
 
@@ -38,7 +39,7 @@ pySHACL implementation but much of this should run fine in any of the implementa
 A brief tour of RDF conceptual mode, the RDF ecosystem and SHACL (and JSON-LD) in that ecosystem.
 
 <div>
-<img src="./images/ecosystem.png"  width="400"/>
+<img src="./images/ecosystem.png"  width="600"/>
 <div>
 
 Image credit: Pierre-Antoine Champin  https://www.w3.org/Talks/2021/09-19-ddi-cdi/?full#rdf-ecosystem
@@ -71,7 +72,40 @@ A brief note on severity levels.  SHACL defines [three levels of severity](https
 
 ## Command Line Tools
 
+There are several CLI based tools that be used.  Most of the tools at the [Implementation Report](https://w3c.github.io/data-shapes/data-shapes-test-suite/) can
+be used at the command line.  
+
+### pySHACL Command Line Use
+
+Full details on the command line for pySHACL can be found at the [project REDME.md](https://github.com/RDFLib/pySHACL/blob/master/README.md)
+
+
+For command line use:
+_(these example commandline instructions are for a Linux/Unix based OS)_
+```bash
+$ pyshacl -s /path/to/shapesGraph.ttl -m -i rdfs -a -j -f human /path/to/dataGraph.ttl
+```
+Where
+- `-s` is an (optional) path to the shapes graph to use
+- `-e` is an (optional) path to an extra ontology graph to import
+- `-i` is the pre-inferencing option
+- `-f` is the ValidationReport output format (`human` = human-readable validation report)
+- `-m` enable the meta-shacl feature
+- `-a` enable SHACL Advanced Features
+- `-j` enable SHACL-JS Features (if `pyhsacl[js]` is installed)
+
+System exit codes are:
+`0` = DataGraph is Conformant
+`1` = DataGraph is Non-Conformant
+`2` = The validator encountered a RuntimeError (check stderr output for details)
+`3` = Not-Implemented; The validator encountered a SHACL feature that is not yet implemented.
+
+
 ## Language support
+
+Beyond the command line, several tools and libraries can be leveraged in a range of programming languages.  
+These include Java, Python, DotNet, and Scala.  Also, some RDF triplestores also have support for 
+processing SHACL natively.
 
 pySHACL examples  ([https://github.com/RDFLib/pySHACL/](https://github.com/RDFLib/pySHACL/))
 
@@ -95,11 +129,17 @@ conforms, results_graph, results_text = r
 
 ## Online Tools
 
+### SHACL Playground
 
 You can try SHACL at the [SHACL Playground](https://shacl.org/playground/)
 
+### Tangram
+
 Tangram [https://tangram.gleaner.io](https://tangram.gleaner.io)
 
+```bash
+curl -F 'datagraph=@./datagraphs/dataset-minimal-BAD.json-ld' -F 'shapegraph=@./shapegraphs/googleRecommended.ttl' -F 'format=machine' https://tangram.gleaner.io/uploader 
+```
 
 
 ### A brief aside on JSON-LD Structure Validation
