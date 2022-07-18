@@ -1,0 +1,3 @@
+,path,constraint,severity,message,id,focus
+0,:sameAs,sh:MinCountConstraintComponent,sh:Warning,It is recommended that a Dataset includes a sameAs URL,_:n1569327126b14ed794d0552520dfdb2eb2,<https://www.bco-dmo.org/dataset/472032>
+1,:isAccessibleForFree,sh:MinCountConstraintComponent,sh:Warning,It is recommended that a Dataset indicates accessibility for free or otherwise,_:n1569327126b14ed794d0552520dfdb2eb3,<https://www.bco-dmo.org/dataset/472032>
