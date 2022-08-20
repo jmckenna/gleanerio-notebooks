@@ -1,0 +1,25 @@
+{
+ "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@id": "http://example.org/ns#Bob",
+  "@type": "Dataset",
+  "givenName": "Robert",
+  "familyName": "Junior",
+  "birthDate": "1971-07-07",
+  "deathDate": "1968-09-10",
+  "address": {
+    "@id": "http://example.org/ns#BobsAddress",
+    "streetAddress": "1600 Amphitheatre Pkway",
+    "postalCode": 9404
+  },
+  "distribution": [{
+    "datePublished": "2016-12-01 00:00:00",
+    "name": "landing page for Excel spreadsheet containing data",
+    "url": "https://ecl.earthchem.org/view.php?id=981",
+    "@type": "DataDownload",
+    "encodingFormat": ["application/vnd.ms-excel"]
+  }]
+}
+
+

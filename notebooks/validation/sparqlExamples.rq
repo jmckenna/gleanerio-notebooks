@@ -1,0 +1,39 @@
+## need a SPARQL for counts of the various validations
+
+
+bc = """
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX sh: <http://www.w3.org/ns/shacl#>
+   SELECT  ?tid ?b
+   WHERE {
+         ?tid rdf:type sh:ValidationReport .
+         ?tid sh:conforms ?b .
+         }
+
+   """
+
+   ccount = """
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX sh: <http://www.w3.org/ns/shacl#>
+   SELECT  ?b (COUNT(?tid) as ?tcount)
+               WHERE {
+                     ?tid rdf:type sh:ValidationReport .
+                     ?tid sh:conforms ?b .
+                     }
+
+   group by (?b)
+   """
+
+   scount = """
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX sh: <http://www.w3.org/ns/shacl#>
+          SELECT  ?severity (COUNT(?id) as ?tcount)
+                 WHERE {
+                          ?id rdf:type sh:ValidationResult .
+                          ?id sh:resultSeverity ?severity .
+                  }
+group by (?severity)
+
+"""
+
+
