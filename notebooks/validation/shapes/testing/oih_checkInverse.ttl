@@ -1,0 +1,42 @@
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix oihval: <https://oceans.collaborium.io/voc/validation/1.0.1/shacl#> .
+
+oihval:IDShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:message "Graph must have an ID"@en ;
+    sh:description "Provide URL to OIH shape guidance" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+oihval:DataDownloadShape
+    a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    sh:message "A resource should include a type DataDownload" ;
+    sh:targetNode schema:DataDownload ;
+    sh:property [
+        sh:path [ sh:inversePath <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ] ;
+        sh:minCount 1 ;
+    ] .
+
+oihval:PersonRor
+    a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    sh:targetClass schema:Person;
+    sh:message "OIH Person PID check" ;
+    sh:description "OIH Person PID Check" ;
+    sh:property oihval:personPIDProperty
+    .
+
+oihval:personPIDProperty
+    a sh:PropertyShape ;
+    sh:severity sh:Warning ;
+    sh:path (schema:identifier schema:propertyID) ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:message "A person type can be enhanced with an identifier that points to a resolvable IRI such as an ORCID" ;
+    .
+
+

@@ -1,0 +1,3 @@
+,severity,constraint,path,message,focus
+0,sh:Warning,sh:MinCountConstraintComponent,:headline,Headline is suggested ,<https://geonode.nodc.id/layers/geonode:geonode:MBR_VIEW>
+1,sh:Warning,sh:MinCountConstraintComponent,:headline,Headline is suggested ,<https://geonode.nodc.id/layers/geonode:geonode:MBR_VIEW>
