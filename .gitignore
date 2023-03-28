@@ -3,3 +3,5 @@
 **/secret/
 notebooks/exploring/canonical.ipynb
 **/.ipynb_checkpoints/**
+**/.parquet
+
